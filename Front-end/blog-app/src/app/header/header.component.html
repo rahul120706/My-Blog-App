@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="logo">BiBlog</span>
+  <span class="spacer"></span>
+
+  <nav class="nav-links">
+    <a mat-button routerLink="/history">History</a>
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button routerLink="/blog">Blogs</a>
+    <a mat-button routerLink="/about">About</a>
+    <a mat-button routerLink="/createblog">Create Blog</a>
+  </nav>
+
+  <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item routerLink="/profile">Profile</button>
+      <button mat-menu-item (click)="openConfirmDialog()">Logout</button>
+    </mat-menu>
+  </ng-container>
+
+  <ng-template #notLoggedIn >
+    <a mat-button routerLink="/userlogin" >Sign In</a>
+  </ng-template>
+</mat-toolbar>

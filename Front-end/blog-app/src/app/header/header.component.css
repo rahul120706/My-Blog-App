@@ -1,0 +1,69 @@
+/* Main navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  animation: fadeInLogo 1s ease-in;
+}
+
+/* Space between logo and links */
+.spacer {
+  flex: 1;
+}
+
+/* Nav links container */
+.nav-links a {
+  color: white;
+  font-weight: 500;
+  margin-left: 16px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  color: #fffef7;
+  transform: scale(1.05);
+}
+
+/* User icon hover */
+button[mat-icon-button]:hover mat-icon {
+  color: #c1c1c1;
+  transform: rotate(10deg);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Logo fade animation */
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Optional: Responsive tweaks */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,73 @@
+<mat-card class="form-card">
+  <mat-card-title>{{ editing ? 'Edit Blog' : 'Create Blog' }}</mat-card-title>
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Excerpt</mat-label>
+      <textarea matInput formControlName="excerpt" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image" />
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit">
+        {{ editing ? 'Update' : 'Create' }}
+      </button>
+      <button
+        *ngIf="editing"
+        mat-stroked-button
+        color="warn"
+        type="button"
+        (click)="cancelEdit()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<mat-card class="list-card" *ngIf="blogs.length > 0; else noBlogs">
+  <mat-card-title>My Blogs</mat-card-title>
+  <div class="blog-list">
+    <mat-card class="blog-card" *ngFor="let blog of blogs">
+      <div class="blog-card-content">
+        <div class="blog-text">
+          <h3>{{ blog.title }}</h3>
+          <p>{{ blog.excerpt | wordLimit:10}}</p>
+          <small>by {{ blog.author }}</small>
+        </div>
+        <div class="blog-actions">
+          <button mat-icon-button color="primary" (click)="editBlog(blog)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteBlog(blog._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>
+
+
+<ng-template #noBlogs>
+  <div class="no-blogs-wrapper">
+    <mat-icon class="no-blogs-icon">library_books</mat-icon>
+    <p class="no-blogs-message">No blogs yet. Start writing!</p>
+    <button mat-raised-button color="primary" (click)="startCreatingBlog()">Create Your First Blog</button>
+  </div>
+</ng-template>
+

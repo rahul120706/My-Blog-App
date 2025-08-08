@@ -1,0 +1,30 @@
+<!-- login.component.html -->
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" required>
+      <mat-error *ngIf = "username.invalid && username.touched">
+            <span *ngIf = "username.errors?.['required']">Username required</span>
+            <span *ngIf = "username.errors?.['email']">Invalid email format</span>
+       </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" required>
+       <mat-error *ngIf = "password.invalid && password.touched">
+            <span *ngIf = "password.errors?.['required']">Password required</span>
+            <span *ngIf = "password.errors?.['minlength']">Password must be minimum of 6 characters</span>
+       </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      Login
+    </button>
+    <span class="signup"><a routerLink="/signup">Sign Up</a></span>
+  </form>
+</div>
+
+

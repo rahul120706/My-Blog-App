@@ -1,0 +1,30 @@
+<mat-card class="intro-card">
+  <mat-card-title>All Blog Posts</mat-card-title>
+  <mat-card-subtitle>Browse recent articles from our awesome community</mat-card-subtitle>
+</mat-card>
+
+<div class="blog-list" *ngIf="blogs && blogs.length > 0; else noBlogs">
+  <mat-card *ngFor="let blog of blogs" class="blog-card" appearance="outlined">
+    <div class="blog-card-content">
+      <div class="blog-image-wrapper">
+        <img *ngIf="blog.image" [src]="blog.image" alt="Blog Image" class="blog-image" loading="lazy" />
+      </div>
+      <div class="blog-details">
+        <mat-card-title>{{ blog.title | capitalize}}</mat-card-title>
+        <mat-card-subtitle>By {{ blog.author }} • {{ blog.date | date }}</mat-card-subtitle>
+        <p>{{ blog.excerpt }}</p>
+        <div class="blog-actions">
+          <button mat-button color="primary" [routerLink]="['/blog', blog._id]">Read More</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #noBlogs>
+  <mat-card class="no-blogs-card">
+    <mat-card-content>
+      <p>No blogs found. Be the first to write one!</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

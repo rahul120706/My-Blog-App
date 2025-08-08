@@ -1,0 +1,45 @@
+<h2 mat-dialog-title class="dialog-title">Edit Profile</h2>
+
+<form [formGroup]="blogform" (ngSubmit)="onSubmit()" class="edit-profile-form">
+  <!-- <div class="profile-picture-section">
+    <div class="profile-image-wrapper">
+      <img [src]="previewUrl || user.profilePicture" alt="Profile Picture" class="profile-image" />
+      <label for="fileInput" class="upload-btn">
+        <mat-icon>photo_camera</mat-icon>
+      </label>
+      <input id="fileInput" type="file" accept="image/*" (change)="onFileChange($event)" hidden />
+    </div>
+  </div> -->
+
+  <div class="input-fields">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline" class="field">
+      <mat-label>Bio</mat-label>
+      <textarea matInput formControlName="bio" rows="3"></textarea>
+    </mat-form-field> -->
+  </div>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" type="submit" [disabled]="blogform.invalid">Save Changes</button>
+    <button mat-stroked-button type="button" mat-dialog-close>Cancel</button>
+  </div>
+</form>

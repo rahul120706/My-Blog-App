@@ -1,0 +1,138 @@
+/* == Layout: Flex Columns for Home Page == */
+.home-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+/* Left Section: Latest Blogs */
+.latest-blogs {
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+/* Center Section: Main Blog Features */
+.welcome-section {
+  flex: 2 1 600px;
+  min-width: 300px;
+}
+
+/* == Card Styling Shared by All mat-cards == */
+mat-card,
+.example-card {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+/* Hover Effects for Cards */
+mat-card:hover,
+.example-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Title Styling */
+mat-card-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+/* Paragraph Styling */
+mat-card-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Feature List Items */
+mat-list-item {
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* Icons */
+mat-icon[matListIcon] {
+  margin-right: 12px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  color: #3f51b5;
+}
+
+mat-list-item:hover mat-icon {
+  transform: scale(1.2);
+}
+
+/* List Text */
+mat-list-item h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  margin: 0;
+}
+
+/* Button Group Styling */
+mat-card-content div {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Button Effects */
+button[mat-button],
+button[mat-raised-button],
+button[mat-stroked-button] {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+  }
+
+  mat-card,
+  .example-card {
+    margin: 16px auto;
+  }
+
+  mat-card-title {
+    font-size: 20px;
+  }
+
+  mat-card-content div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Full-height container if needed for footer placement */
+.pageContainer {
+  min-height: 100%;
+}

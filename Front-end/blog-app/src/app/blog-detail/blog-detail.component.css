@@ -1,0 +1,94 @@
+/* === Blog Detail Card === */
+.blog-detail-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.blog-detail-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-header {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3f51b5;
+}
+
+mat-card-subtitle {
+  font-size: 14px;
+  color: #757575;
+  margin-top: 4px;
+}
+
+/* === Blog Image === */
+.blog-image {
+  margin-top: 16px;
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* === Blog Content === */
+.blog-content {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* === Back Button === */
+mat-card-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+mat-card-actions button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-transform: none;
+  transition: background-color 0.2s ease;
+}
+
+mat-card-actions button:hover {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+
+/* === Spinner Template === */
+mat-spinner {
+  display: block;
+  margin: 80px auto;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .blog-detail-card {
+    margin: 24px 16px;
+    padding: 12px;
+  }
+
+  mat-card-title {
+    font-size: 20px;
+  }
+
+  .blog-content {
+    font-size: 15px;
+  }
+}

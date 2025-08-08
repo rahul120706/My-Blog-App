@@ -1,0 +1,83 @@
+<!-- home.component.html -->
+<div class="home-layout">
+  <!-- Left: Latest Blogs -->
+  <div class="latest-blogs">
+    <mat-card>
+      <mat-card-title>Latest Blogs</mat-card-title>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Small</mat-card-subtitle>
+          <img mat-card-sm-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" loading="lazy"/>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        A small and friendly dog with a confident personality.
+      </mat-card-content>
+    </mat-card>
+
+     <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Small</mat-card-subtitle>
+          <img mat-card-sm-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" loading="lazy"/>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        A small and friendly dog with a confident personality.
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Center: Welcome Section -->
+  <div class="welcome-section">
+    <mat-card>
+      <mat-card-title>Welcome to My BiBlog</mat-card-title>
+      <mat-card-content>
+        <p>Write, share, and manage your own content in a modern blogging platform.</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>What You Can Do</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListIcon color="primary">create</mat-icon>
+            <h4 matLine>Create your own blog posts</h4>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon matListIcon color="accent">edit</mat-icon>
+            <h4 matLine>Edit or delete your posts anytime</h4>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon matListIcon color="warn">lock_open</mat-icon>
+            <h4 matLine>Sign up or sign in to manage content</h4>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon matListIcon color="primary">groups</mat-icon>
+            <h4 matLine>Read blogs from the community</h4>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Get Started</mat-card-title>
+      <mat-card-content>
+        <p>To start creating your blog, you need to create an account or sign in.</p>
+        <div>
+          <button mat-raised-button color="primary" routerLink="/signup">Sign Up</button>
+          <button mat-stroked-button color="accent" routerLink="/userlogin">Sign In</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

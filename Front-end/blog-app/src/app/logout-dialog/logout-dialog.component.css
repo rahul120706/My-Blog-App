@@ -1,0 +1,62 @@
+/* Dialog content styles */
+.dialog-content {
+  font-size: 18px;
+  padding: 24px 20px 10px 20px;
+  color: #333;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Dialog actions */
+.dialog-actions {
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+/* Buttons */
+.dialog-actions button {
+  min-width: 100px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Cancel button */
+.cancel-button {
+  color: #666;
+}
+
+.cancel-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Confirm button */
+.confirm-button {
+  color: white;
+}
+
+.confirm-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transform: scale(1.03);
+}
+
+/* Optional: Dialog animations (optional enhancement) */
+::ng-deep .mat-dialog-container {
+  border-radius: 12px;
+  padding: 0 !important;
+  overflow: hidden;
+  animation: dialogFadeIn 0.3s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+}
+
+@keyframes dialogFadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

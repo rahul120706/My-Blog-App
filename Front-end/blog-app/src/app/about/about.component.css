@@ -1,0 +1,120 @@
+.about-section {
+  padding: 48px 16px;
+  background: linear-gradient(135deg, #f8f9fa, #e0e7ff);
+  min-height: 100vh;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Card base style */
+mat-card {
+  padding: 20px 20px;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+/* Hover magic ✨ */
+mat-card:hover {
+  transform: translateY(8px) scale(2.15);
+  box-shadow: 0 12px 32px rgba(63, 81, 181, 0.25);
+  cursor: pointer;
+}
+
+/* Card title */
+mat-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #3f51b5;
+  display: block;
+}
+
+/* Paragraphs inside cards */
+mat-card-content p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Material list items */
+mat-list-item {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+mat-list-item h4 {
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Animate Material icons on hover */
+mat-icon[matListIcon] {
+  font-size: 28px;
+  margin-right: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+mat-list-item:hover mat-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+/* Stagger animation on load */
+.card-grid mat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.card-grid mat-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.card-grid mat-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.card-grid mat-card:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  mat-card {
+    padding: 16px;
+  }
+
+  mat-card-title {
+    font-size: 20px;
+  }
+
+  mat-list-item h4 {
+    font-size: 15px;
+  }
+
+  .about-section {
+    padding: 32px 12px;
+  }
+}
+
+

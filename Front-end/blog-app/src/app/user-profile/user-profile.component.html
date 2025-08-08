@@ -1,0 +1,41 @@
+<mat-card class="profile-card">
+  <div class="profile-header">
+    <div class="profile-avatar">
+      <img [src]="user.profileImage || 'https://i.pravatar.cc/150?img=12'" alt="Profile Picture" />
+    </div>
+    <div class="profile-info">
+      <h2>{{ user.username }}</h2>
+      <p class="email">{{ user.email }}</p>
+      <p class="bio">{{ user.bio || 'No bio added yet.' }}</p>
+      <button mat-stroked-button color="primary" (click)="editProfile()">Edit Profile</button>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="profile-details" >
+    <h3>Profile Details</h3>
+    <mat-list>
+      <mat-list-item>
+        <strong>First Name:</strong>
+        <span class="value">{{ user.firstname || '-' }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <strong>Last Name:</strong>
+        <span class="value">{{ user.lastname || '-' }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <strong>Username:</strong>
+        <span class="value">{{ user.username }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <strong>Email:</strong>
+        <span class="value">{{ user.email }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <strong>Joined:</strong>
+        <span class="value">{{ user.createdAt | date }}</span>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</mat-card>
