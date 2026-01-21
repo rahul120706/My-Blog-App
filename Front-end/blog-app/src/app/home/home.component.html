@@ -6,37 +6,38 @@
       <mat-card-title>Latest Blogs</mat-card-title>
     </mat-card>
 
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Small</mat-card-subtitle>
-          <img mat-card-sm-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" loading="lazy"/>
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        A small and friendly dog with a confident personality.
-      </mat-card-content>
-    </mat-card>
+        <div class="blog-grid">
+          <mat-card class="blog-card" appearance="outlined" *ngFor="let blog of blogPosts">
+        
+            <!-- Existing content (UNCHANGED) -->
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{ blog.title }}</mat-card-title>
+                <mat-card-subtitle>Small</mat-card-subtitle>
+                <img mat-card-sm-image [src]="blog.image" loading="lazy" />
+              </mat-card-title-group>
+            </mat-card-header>
+        
+            <mat-card-content>
+              {{ blog.excerpt | wordLimit:10}}
+            </mat-card-content>
+        
+            <!-- Additive hover overlay -->
+            <div class="hover-overlay">
+              <button mat-raised-button color="primary" [routerLink]="['/blog', blog._id]">
+                Read more
+              </button>
+            </div>
+        
+          </mat-card>
+        </div>
 
-     <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Small</mat-card-subtitle>
-          <img mat-card-sm-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" loading="lazy"/>
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        A small and friendly dog with a confident personality.
-      </mat-card-content>
-    </mat-card>
   </div>
 
   <!-- Center: Welcome Section -->
   <div class="welcome-section">
     <mat-card>
-      <mat-card-title>Welcome to My BiBlog</mat-card-title>
+      <mat-card-title>Welcome to Bi<span class="logo">Blog</span> </mat-card-title>
       <mat-card-content>
         <p>Write, share, and manage your own content in a modern blogging platform.</p>
       </mat-card-content>

@@ -12,7 +12,7 @@
       <div class="blog-details">
         <mat-card-title>{{ blog.title | capitalize}}</mat-card-title>
         <mat-card-subtitle>By {{ blog.author }} • {{ blog.date | date }}</mat-card-subtitle>
-        <p>{{ blog.excerpt }}</p>
+        <p>{{ blog.excerpt | wordLimit:30}}</p>
         <div class="blog-actions">
           <button mat-button color="primary" [routerLink]="['/blog', blog._id]">Read More</button>
         </div>
@@ -28,3 +28,5 @@
     </mat-card-content>
   </mat-card>
 </ng-template>
+
+<!-- Comment Section To Be Added -->

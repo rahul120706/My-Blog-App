@@ -30,7 +30,7 @@ export class AuthService {
    private baseUrl = 'http://localhost:3000/api/user';
    
   getUserId(): Observable<User> {
-      const username = localStorage.getItem('username')
+      const username = localStorage.getItem('username');
       return this.http.get<User>(`${this.baseUrl}/${username}`);
   }
 

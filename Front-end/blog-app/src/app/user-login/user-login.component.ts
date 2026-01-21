@@ -31,7 +31,7 @@ export class UserLoginComponent {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       const loginPayload: LoginPayload = this.loginForm.value;
-      this.apiservice.postDataToNode(loginPayload,this.loginForm.value.username);
+      this.apiservice.postDataToNode(loginPayload);
         this.snackbar.open('Login successful!', 'Close', {
       duration: 3000,         // 3 seconds
       horizontalPosition: 'center',

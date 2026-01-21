@@ -19,7 +19,7 @@
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Image URL</mat-label>
-      <input matInput formControlName="image" />
+      <input matInput formControlName="image"/>
     </mat-form-field>
 
     <div class="button-group">
@@ -39,7 +39,7 @@
   </form>
 </mat-card>
 
-<mat-card class="list-card" *ngIf="blogs.length > 0; else noBlogs">
+<mat-card class="list-card" *ngIf="!noBlogData">
   <mat-card-title>My Blogs</mat-card-title>
   <div class="blog-list">
     <mat-card class="blog-card" *ngFor="let blog of blogs">
@@ -63,11 +63,11 @@
 </mat-card>
 
 
-<ng-template #noBlogs>
+<div *ngIf="noBlogData">
   <div class="no-blogs-wrapper">
     <mat-icon class="no-blogs-icon">library_books</mat-icon>
     <p class="no-blogs-message">No blogs yet. Start writing!</p>
     <button mat-raised-button color="primary" (click)="startCreatingBlog()">Create Your First Blog</button>
   </div>
-</ng-template>
+</div>
 

@@ -16,29 +16,24 @@ import { AuthService } from '../auth.service';
 export class CreateblogComponent implements OnInit{  
   blogForm: FormGroup;
   blogs: Blogs[] = [];
+  noBlogData: boolean = false;
   editing = false;
   currentId: string | null = null;
   // _UserId:string| null = null;
 
-  ngOnInit(): void{
-
-      // const blogId = Number(this.route.snapshot.paramMap.get('id'));
-      this.authservice.getUserId().subscribe({
-        next: (user) =>{
-          this.blogservice.getAllBlogById(user._id).subscribe({
-          next: (data)=>{this.blogs = data},
-          error: (error)=>{ console.log(error)}
+  ngOnInit(): void {
+    // const blogId = Number(this.route.snapshot.paramMap.get('id'));
+    this.authservice.getUserId().subscribe({
+      next: (user) => {
+        this.blogservice.getAllBlogById(user._id).subscribe((res) => {
+          this.blogs = res;
+          this.noBlogData = this.blogs?.length ? false : true;
         })
       }
     })
-
-      
   }
   
   constructor(private fb: FormBuilder,private blogservice: BlogService,private authservice:AuthService) {
-
-     
-
     this.blogForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
@@ -116,19 +111,19 @@ export class CreateblogComponent implements OnInit{
     
   }
 
-  resetForm(){
+  resetForm() {
     this.editing = false;
     this.currentId = null;
     this.blogForm.reset({
-    title: '',
-    author: '',
-    excerpt: '',
-    image: ''
-  });
+      title: '',
+      author: '',
+      excerpt: '',
+      image: ''
+    });
 
-  this.blogForm.markAsPristine();
-  this.blogForm.markAsUntouched();
-  this.blogForm.updateValueAndValidity();
+    this.blogForm.markAsPristine();
+    this.blogForm.markAsUntouched();
+    this.blogForm.updateValueAndValidity();
   }
 
 

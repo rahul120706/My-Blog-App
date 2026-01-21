@@ -4,6 +4,8 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -21,9 +23,16 @@ export class HeaderComponent implements OnInit{
   }
   constructor(
     private authService: AuthService,
-    private router:Router,
+    private router: Router,
     private matDialog: MatDialog,
-  ) {}
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
+    this.iconRegistry.addSvgIcon(
+    'user_png',
+    this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/user.png')
+  );
+  }
 
   isLoggedIn = true;
  

@@ -11,8 +11,8 @@ export class BlogService {
 
   constructor(private http : HttpClient) { }
 
-  getAllBlogById(UserId:string): Observable<Blogs[]>{
-        const apiUrl = `http://localhost:3000/api/blogs/${UserId}`;
+  getAllBlogById(userId:string): Observable<Blogs[]>{
+        const apiUrl = `http://localhost:3000/api/users/${userId}/blogs`;
         return this.http.get<Blogs[]>(apiUrl)
     }
 
@@ -27,8 +27,8 @@ export class BlogService {
   }  
 
   // This is for Individual blog routes with id like /blog/1,/2,/3
-  getBlogbyUserId(id:string): Observable<Blogs>{
-    return this.http.get<Blogs>(`http://localhost:3000/api/blogs/${id}`)
+  getBlogbyBlogId(blogId:string): Observable<Blogs>{
+    return this.http.get<Blogs>(`http://localhost:3000/api/blogs/${blogId}`)
   }
 
   updateBlog(id:string,updateBlog: any) : Observable<Blogs>{

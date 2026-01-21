@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BlogService } from '../blog.service';
+import { CommonService } from '../common-shared/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,21 +8,27 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-    blogPosts = [
-  {
-    title: '🚀 Getting Started with Angular',
-    date: 'July 21, 2025',
-    excerpt: 'A quick guide to set up and create your first Angular app.'
-  },
-  {
-    title: '💡 CSS Tips for Clean UI',
-    date: 'July 18, 2025',
-    excerpt: '5 useful CSS tricks to make your UI modern and responsive.'
-  },
-  {
-    title: '📘 How I Built My First Blog',
-    date: 'July 15, 2025',
-    excerpt: 'From idea to launch: steps I followed to build this site.'
+  blogPosts: any;
+  subscription: any[] = [];
+
+  constructor(private blogService: BlogService,
+    private commonService: CommonService
+  ) { }
+
+  ngOnInit() {
+    this.loadBlogs();
   }
-];
+
+  loadBlogs() {
+    const blogSubscribtion = this.blogService.getAllBlog().subscribe(res => {
+      this.blogPosts = res;
+      console.log("Loaded Blogs -> ", this.blogPosts);
+    })
+    console.log("push Notification", blogSubscribtion)
+    this.subscription.push(blogSubscribtion);
+  }
+
+  onDestroy() {
+    this.commonService.preComponentDestroyTasks(this.subscription);
+  }
 }

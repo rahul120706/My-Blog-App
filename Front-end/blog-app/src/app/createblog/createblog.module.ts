@@ -11,13 +11,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { WordLimitPipe } from '../word-limit.pipe';
+import { SharedModule } from '../common-shared/modules/shared/shared.module';
 
 @NgModule({
   declarations: [CreateblogComponent,
-    WordLimitPipe,
   ],
   imports: [
+    SharedModule,
     CommonModule,
     MatCardModule,
     MatButtonModule,
@@ -30,4 +30,4 @@ import { WordLimitPipe } from '../word-limit.pipe';
     MatGridListModule,
   ]
 })
-export class BlogModule {}
+export class CreateBlogModule {}

@@ -136,3 +136,40 @@ button:hover {
 .pageContainer {
   min-height: 100%;
 }
+
+.logo {
+  /* font-size: 24px; */
+  font-weight: bold;
+  color: #64b5f6;
+}
+
+.blog-card {
+  /* position: relative; */
+  /* overflow: hidden; */
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+/* Overlay layer */
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease;
+}
+
+/* Show overlay on hover */
+.blog-card:hover .hover-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+

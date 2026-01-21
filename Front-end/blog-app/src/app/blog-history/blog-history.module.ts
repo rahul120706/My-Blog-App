@@ -12,12 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
+import { SharedModule } from '../common-shared/modules/shared/shared.module';
 
 
 @NgModule({
-  declarations: [BlogHistoryComponent,
+  declarations: [
+    BlogHistoryComponent,
   ],
   imports: [
+    SharedModule,
     CommonModule,
     MatCardModule,
     MatButton,

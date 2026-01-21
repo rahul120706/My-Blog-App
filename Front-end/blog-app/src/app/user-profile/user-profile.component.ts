@@ -40,8 +40,4 @@ defaultPic = 'https://via.placeholder.com/100';
       data: null,
     })
   }
-  
-  // deleteBlog(id: string) {
-  //   this.userBlogs = this.userBlogs.filter(blog => blog.id !== id);
-  // }
 }

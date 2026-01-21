@@ -34,6 +34,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditProfileDialogComponent } from './edit-profile-dialog/edit-profile-dialog.component';
+import { SharedModule } from './common-shared/modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,10 @@ import { EditProfileDialogComponent } from './edit-profile-dialog/edit-profile-d
     BlogDetailComponent,
     UserProfileComponent,
     LogoutDialogComponent,
-    EditProfileDialogComponent
+    EditProfileDialogComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
    MatButtonModule,

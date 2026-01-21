@@ -20,7 +20,7 @@ export class ApiService {
     return this.http.get<{ message: string }>('http://localhost:3000/api/hello')
   }
 
-  postDataToNode(loginPayload: LoginPayload ,username:string){
+  postDataToNode(loginPayload: LoginPayload){
     const url = 'http://localhost:3000/api/hello';
      this.http.post<{message: string}>(url,{
       action: 'read',
@@ -30,7 +30,7 @@ export class ApiService {
             // alert('Login successful!');
             console.log('Logged in user:', res);
              
-            this.authservice.login(username);
+            this.authservice.login(loginPayload.username);
             this.router.navigate(['/home']);
             // Store token or user if needed
           },

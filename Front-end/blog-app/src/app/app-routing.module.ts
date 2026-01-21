@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'about', loadChildren:()=> import('./about/about.module').then((m)=> m.AboutModule)},
   {path: 'profile', component: UserProfileComponent,canActivate: [authGuard]},
   {path: 'blog/:id', component: BlogDetailComponent,canActivate: [authGuard]},
-  {path: 'createblog', loadChildren: ()=> import('./createblog/createblog.module').then((m)=> m.BlogModule),canActivate: [authGuard]},
+  {path: 'createblog', loadChildren: ()=> import('./createblog/createblog.module').then((m)=> m.CreateBlogModule),canActivate: [authGuard]},
     {path: 'history', loadChildren:()=> import('./blog-history/blog-history.module').then((m)=> m.BlogHistoryModule)},
       { path: '**', redirectTo: 'home' },
 ];

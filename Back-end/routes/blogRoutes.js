@@ -30,18 +30,6 @@ router.put('/blogs/:id', async(req,res)=>{
     }
 })
 
-router.get('/blogs/:id', async(req,res)=>{
-
-    try{
-        const blogId = req.params.id;
-        console.log(blogId);  
-        const updatedBlog = await Blog.findById({_id: blogId})
-        console.log(updatedBlog);
-        res.json(updatedBlog);
-    }catch(err){
-        res.status(500).json({error: "Udi Baba"});
-    }
-})
 
 router.get('/blogs', async ( req, res ) =>{
     try{
@@ -86,31 +74,29 @@ router.get('/blogs/history', async (req, res) => {
 });
 
 
-router.get('/blogs/:_UserId' ,async (req,res)=>{
-    try{
-        const userId = req.params._UserId;
-        const blog = await Blog.find({_UserId: userId})
+// 🔹 GET single blog by blogId
+router.get('/blogs/:blogId', async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.blogId);
     if (!blog) {
-      return res.status(404).json({ message: "Blog not found" });
+      return res.status(404).json({ message: 'Blog not found' });
     }
-        res.json(blog)
-        
-    }catch(err){
-        res.status(500).json({message: "error recieved nako",err})
-    }
-})
+    res.json(blog);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch blog' });
+  }
+});
 
 
-// // GET all blogs by UserId
-// router.get('/blogs/:userId', async (req, res) => {
-//   const userId = req.params.userId;
-//   try {
-//     const blogs = await Blog.find({ _UserId: userId });
-//     res.status(200).json(blogs);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to fetch blogs' });
-//   }
-// });
+// 🔹 GET blogs by user
+router.get('/users/:userId/blogs', async (req, res) => {
+  try {
+    const blogs = await Blog.find({ _UserId: req.params.userId });
+    res.json(blogs);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch user blogs' });
+  }
+});
 
 router.post('/createblog', async (req,res)=>{
     const data = req.body;

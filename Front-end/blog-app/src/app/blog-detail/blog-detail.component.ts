@@ -20,7 +20,7 @@ export class BlogDetailComponent {
     console.log(blogId)
 
     // When You Send this service Function it makes the route as _id of the blog which is a mongo Object Id ,
-    this.blogservice.getBlogbyUserId(blogId as string).subscribe({
+    this.blogservice.getBlogbyBlogId(blogId as string).subscribe({
       next: (data)=>{
           this.blog = data;
           console.log(data);
@@ -33,6 +33,6 @@ export class BlogDetailComponent {
   }
 
   goBack(): void {
-  this.location.back();
-} 
+    this.location.back();
+  }
 }
