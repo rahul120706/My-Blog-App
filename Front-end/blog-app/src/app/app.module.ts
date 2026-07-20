@@ -35,6 +35,8 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditProfileDialogComponent } from './edit-profile-dialog/edit-profile-dialog.component';
 import { SharedModule } from './common-shared/modules/shared/shared.module';
+import { HighlightDirective } from '../directives/highlight.directive';
+import { DelayDirective } from '../directives/delay.directive';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { SharedModule } from './common-shared/modules/shared/shared.module';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    HighlightDirective,
+    DelayDirective
   ],
   providers: [
     provideClientHydration(),

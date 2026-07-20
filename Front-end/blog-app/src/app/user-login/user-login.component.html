@@ -1,4 +1,10 @@
 <!-- login.component.html -->
+ <!-- This card will appear automatically after 2 seconds (2000ms) -->
+<div *appDelay="2000" class="welcome-card">
+  <h2>Welcome to the App!</h2>
+  <p>Sorry for the delay, I was busy rendering.</p>
+</div>
+
 <div class="login-container">
   <div class="logo">Bi<span>Blog</span></div>
   <h2>Login</h2>
@@ -26,6 +32,10 @@
     </button>
     <span class="signup"><a routerLink="/signup">Sign Up</a></span>
   </form>
+  <p appHighlight="cyan">Hover over me to see a cyan highlight!</p>
+
+<!-- Or use the default yellow value defined in the directive -->
+<p appHighlight = "yellow">Hover over me to see a yellow highlight!</p>
 </div>
 
 
