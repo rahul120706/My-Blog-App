@@ -1,0 +1,105 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 24px;
+  height: calc(100vh - 40px);
+  padding: 20px;
+  background-color: #f4f6f9;
+  font-family: Roboto, sans-serif;
+}
+
+/* Sidebar Menu Design Styling */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracker-card {
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05) !important;
+  border: 1px solid rgba(0,0,0,0.03);
+  padding: 12px;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.percentage-badge {
+  background: linear-gradient(135deg, #673ab7, #3f51b5);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+mat-progress-bar {
+  height: 6px !important;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Dynamic Hover and Active Row Indicator styling */
+.topic-item {
+  margin-bottom: 8px;
+  border-radius: 12px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.topic-item:hover {
+  background-color: rgba(63, 81, 181, 0.04) !important;
+}
+
+.active-item {
+  background-color: rgba(63, 81, 181, 0.1) !important;
+  border-left: 4px solid #3f51b5;
+}
+
+.active-item .topic-title {
+  font-weight: 600;
+  color: #3f51b5;
+}
+
+/* Right Viewport Workspace Styling */
+.content-viewport {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.03) !important;
+  border: 1px solid rgba(0,0,0,0.02);
+  overflow-y: auto;
+}
+
+.demo-pane h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #212121;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.demo-box {
+  padding: 40px;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.demo-box.structural {
+  border-style: dashed;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-color: #81c784;
+}

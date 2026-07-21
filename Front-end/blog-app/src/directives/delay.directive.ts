@@ -2,7 +2,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[appDelay]',
-  standalone: true
+  standalone: false
 })
 export class DelayDirective {
   private hasView = false;

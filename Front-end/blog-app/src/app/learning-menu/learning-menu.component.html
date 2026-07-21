@@ -1,0 +1,60 @@
+<div class="dashboard-layout">
+  
+  <!-- LEFT SIDE: Modern Interactive Tracker Menu -->
+  <aside class="sidebar-menu">
+    <mat-card class="tracker-card">
+      <mat-card-header>
+        <mat-card-title>Angular Workspace</mat-card-title>
+        <span class="percentage-badge">{{ progressService.progressPercentage() }}%</span>
+      </mat-card-header>
+
+      <mat-progress-bar mode="determinate" [value]="progressService.progressPercentage()"></mat-progress-bar>
+
+      <mat-nav-list class="topic-list">
+        <mat-list-item 
+          *ngFor="let topic of progressService.topics()"
+          (click)="progressService.selectTopic(topic.id)"
+          [class.active-item]="progressService.selectedTopicId() === topic.id"
+          class="topic-item">
+          
+          <!-- Clickable Completion Checkmark Toggle -->
+          <mat-icon matListItemIcon 
+                    [color]="topic.completed ? 'primary' : 'disabled'"
+                    (click)="progressService.toggleTopicComplete(topic.id, $event)">
+            {{ topic.completed ? 'check_circle' : 'radio_button_unchecked' }}
+          </mat-icon>
+          
+          <span matListItemTitle class="topic-title">{{ topic.name }}</span>
+          <span matListItemLine class="topic-sub">{{ topic.category }}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-card>
+  </aside>
+
+  <!-- RIGHT SIDE: The Live Demo Viewport Area -->
+  <main class="content-viewport" [ngSwitch]="progressService.selectedTopicId()">
+    
+    <!-- Topic 1 Work View -->
+    <div *ngSwitchCase="'attr-dir'" class="demo-pane">
+      <h2>✨ Custom Attribute Directive</h2>
+      <p class="description">Hovering over the badge below fires the custom element styling code.</p>
+      <!-- Your Attribute Directive in Action here! -->
+      <div appHighlight="cyan" class="demo-box">Hover over me!</div>
+    </div>
+
+    <!-- Topic 2 Work View -->
+    <div *ngSwitchCase="'struct-dir'" class="demo-pane">
+      <h2>⏳ Custom Structural Directive</h2>
+      <p class="description">This blueprint element will only inject into the DOM after a given execution timeout duration.</p>
+      <!-- Your Structural Directive in Action here! -->
+      <div *appDelay="1500" class="demo-box structural">Loaded after 1.5 seconds!</div>
+    </div>
+
+    <!-- Topic 3 Fallback/Form View -->
+    <div *ngSwitchCase="'forms'" class="demo-pane">
+      <h2>📝 Reactive Forms Validation Lab</h2>
+      <div class="demo-box form-box">Form Component implementation renders here...</div>
+    </div>
+
+  </main>
+</div>

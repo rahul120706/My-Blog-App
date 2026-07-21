@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatSidenavContainer } from '@angular/material/sidenav';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatProgressBar } from '@angular/material/progress-bar';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {  ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
@@ -37,6 +38,8 @@ import { EditProfileDialogComponent } from './edit-profile-dialog/edit-profile-d
 import { SharedModule } from './common-shared/modules/shared/shared.module';
 import { HighlightDirective } from '../directives/highlight.directive';
 import { DelayDirective } from '../directives/delay.directive';
+import { LearningAngularComponent } from './learning-angular/learning-angular.component';
+import { LearningMenuComponent } from './learning-menu/learning-menu.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { DelayDirective } from '../directives/delay.directive';
     UserProfileComponent,
     LogoutDialogComponent,
     EditProfileDialogComponent,
+    DelayDirective,
+    LearningAngularComponent,
+    LearningMenuComponent,
   ],
   imports: [
     SharedModule,
@@ -77,7 +83,7 @@ import { DelayDirective } from '../directives/delay.directive';
     MatProgressSpinnerModule,
     MatDialogModule,
     HighlightDirective,
-    DelayDirective
+    MatProgressBar
   ],
   providers: [
     provideClientHydration(),
